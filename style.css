@@ -1,0 +1,237 @@
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Custom Properties ──────────────────────────────────── */
+:root {
+    --text:        #1c1c1c;
+    --text-muted:  #6b6560;
+    --bg:          #faf9f7;
+    --rule:        #d4cfc9;
+    --font:        'EB Garamond', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+    --max-width:   700px;
+    --pad:         2rem;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+html {
+    font-size: 19.5px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.74;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+header {
+    width: 100%;
+    max-width: calc(var(--max-width) + 2 * var(--pad));
+    margin: 0 auto;
+    padding: 1.6rem var(--pad) 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.85rem;
+}
+
+.site-name {
+    font-family: var(--font);
+    font-size: 1.45rem;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.site-name:hover {
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nav-tag {
+    font-family: var(--font);
+    font-size: 0.8rem;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.18rem 0.55rem;
+    border: 1px solid var(--rule);
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-tag:hover {
+    color: var(--text);
+    border-color: #999490;
+}
+
+.nav-tag--active {
+    color: var(--text);
+    border-color: var(--text-muted);
+    font-style: italic;
+}
+
+.header-rule {
+    height: 1px;
+    background: var(--rule);
+}
+
+/* ── Main & Article ──────────────────────────────────────── */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: calc(var(--max-width) + 2 * var(--pad));
+    margin: 0 auto;
+    padding: 2.8rem var(--pad) 1rem;
+}
+
+article::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+article h1 {
+    font-size: 2.05rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.2rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+article h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-top: 2.4rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--rule);
+}
+
+article p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    margin-bottom: 0.9em;
+    orphans: 3;
+    widows: 3;
+}
+
+/* ── Figures ─────────────────────────────────────────────── */
+figure {
+    margin: 1.6rem 0;
+}
+
+figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    filter: saturate(0.88) brightness(1.02);
+}
+
+figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.45rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* centred wide figure */
+.fig-center {
+    margin: 2.2rem 0;
+}
+
+.fig-center img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+/* right-floated figure */
+.fig-right {
+    float: right;
+    clear: right;
+    margin: 0.2rem 0 1.4rem 2rem;
+    max-width: 340px;
+}
+
+/* left-floated figure */
+.fig-left {
+    float: left;
+    clear: left;
+    margin: 0.2rem 2rem 1.4rem 0;
+    max-width: 320px;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+footer {
+    width: 100%;
+    max-width: calc(var(--max-width) + 2 * var(--pad));
+    margin: 1.5rem auto 0;
+    padding: 0 var(--pad) 2rem;
+}
+
+.footer-rule {
+    height: 1px;
+    background: var(--rule);
+    margin-bottom: 0.8rem;
+}
+
+footer p {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 580px) {
+    html {
+        font-size: 17px;
+    }
+
+    .fig-right,
+    .fig-left {
+        float: none;
+        margin: 1.6rem 0;
+        max-width: 100%;
+    }
+
+    article p {
+        text-align: left;
+        hyphens: none;
+        -webkit-hyphens: none;
+    }
+
+    nav {
+        gap: 0.2rem;
+    }
+}
